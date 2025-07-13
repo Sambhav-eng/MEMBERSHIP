@@ -7,6 +7,11 @@ const app = express(); // ✅ THIS LINE is missing in your file
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+const path = require('path');
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
