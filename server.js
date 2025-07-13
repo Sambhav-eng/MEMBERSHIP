@@ -1,3 +1,14 @@
+const nodemailer = require('nodemailer');
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL,     // secure way 🔐
+    pass: process.env.PASSWORD
+  }
+});
+
+
 app.post('/submit', (req, res) => {
   const {
     name, organisation, state, zip, country,
