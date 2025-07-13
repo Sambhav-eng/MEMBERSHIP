@@ -1,3 +1,13 @@
+const nodemailer = require('nodemailer');
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL,     // secure way 🔐
+    pass: process.env.PASSWORD
+  }
+});
+
 app.post('/submit', (req, res) => {
   const {
     name, organisation, state, zip, country,
@@ -27,6 +37,7 @@ app.post('/submit', (req, res) => {
     subject: 'New Life-Time Membership Submission',
     text: message
   };
+  
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
