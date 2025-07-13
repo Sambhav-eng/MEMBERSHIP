@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Membership</title>
+  <style>
+    body { font-family: Arial; padding: 30px; }
+    .querie { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; }
+    input { padding: 8px; width: 300px; }
+    button { padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+
+  <h1>Life-Time Membership</h1>
+  <form id="membershipForm">
+    <div class="querie">
+      <label>Name</label>
+      <input type="text" name="name" required>
+    </div>
+    <div class="querie">
+      <label>Organisation</label>
+      <input type="text" name="organisation" required>
+    </div>
+    <div class="querie">
+      <label>State</label>
+      <input type="text" name="state">
+    </div>
+    <div class="querie">
+      <label>ZIP</label>
+      <input type="text" name="zip">
+    </div>
+    <div class="querie">
+      <label>Country</label>
+      <input type="text" name="country">
+    </div>
+    <div class="querie">
+      <label>Email</label>
+      <input type="email" name="email" required>
+    </div>
+    <div class="querie">
+      <label>Mobile</label>
+      <input type="text" name="mobile">
+    </div>
+    <div class="querie">
+      <label>Type of Membership</label>
+      <input type="text" name="membership_type">
+    </div>
+    <div class="querie">
+      <label>Amount</label>
+      <input type="text" name="amount">
+    </div>
+    <div class="querie">
+      <label>Photograph (URL)</label>
+      <input type="text" name="photo">
+    </div>
+    <div class="querie">
+      <label>Profile / Biodata</label>
+      <input type="text" name="profile">
+    </div>
+    <button type="submit">Submit Form</button>
+  </form>
+
+  <div id="response"></div>
+
+  <script>
+    app.use(express.static(__dirname)); // ✅ Serves test.html + CSS
+
+    document.getElementById('membershipForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const formObject = Object.fromEntries(formData.entries());
+
+      try {
+        const res = await fetch('https://membership-cd69.onrender.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formObject)
+        });
+
+        const text = await res.text();
+        document.getElementById("response").innerHTML = text;
+
+      } catch (err) {
+        document.getElementById("response").innerText = "Error submitting form";
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+</html>
