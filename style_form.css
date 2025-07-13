@@ -1,0 +1,30 @@
+    .form
+    {
+        border : 2px solid ;
+        border-radius: 30px;
+        margin-left: 2vw;    
+        margin-right: 2vw;
+        margin-top: 2vh;    
+    }
+
+    .form > h1
+    {
+        opacity: .9;
+        text-align: center;
+        font-size: 4.vh;
+        text-justify: auto;
+        text-decoration: underline;
+    }
+    #name
+    {
+        height: 4vh;
+        width: 50vw;
+        display: block;
+        margin: 3px;
+    }
+    .querie
+    {
+        width: 80vw;
+         margin-top: 5vh;
+         margin-left: 16vw;
+    }
