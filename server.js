@@ -2,22 +2,16 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 
-app.use(express.static("public"));
+const app = express(); // ✅ This must come BEFORE app.use
 
-const app = express(); // ✅ THIS LINE is missing in your file
-
+app.use(express.static("public")); // ✅ Serve your HTML/CSS from 'public' folder
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-const path = require('path');
-
-app.use(express.static(path.join(__dirname, 'public')));
-
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.EMAIL,     // secure way 🔐
+    user: process.env.EMAIL,
     pass: process.env.PASSWORD
   }
 });
@@ -47,11 +41,10 @@ app.post('/submit', (req, res) => {
 
   const mailOptions = {
     from: email,
-    to: 'trustforacademic@gmail.com',
+    to: 'mohitsaxenamohit@gmail.com',
     subject: 'New Life-Time Membership Submission',
     text: message
   };
-  
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
@@ -64,7 +57,6 @@ app.post('/submit', (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
