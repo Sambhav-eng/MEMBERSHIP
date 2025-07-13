@@ -2,6 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 
+app.use(express.static("public"));
+
 const app = express(); // ✅ THIS LINE is missing in your file
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -45,7 +47,7 @@ app.post('/submit', (req, res) => {
 
   const mailOptions = {
     from: email,
-    to: 'trustforacademic@hmailc',
+    to: 'trustforacademic@gmail.com',
     subject: 'New Life-Time Membership Submission',
     text: message
   };

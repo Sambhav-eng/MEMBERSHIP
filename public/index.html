@@ -1,60 +1,83 @@
-<form action="https://membership-cd69.onrender.com/submit" method="POST">
-  <div class="querie">
-    <label for="name">Enter your name : </label>
-    <input type="text" name="name" placeholder="Enter your name" required>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Life-Time Membership</title>
 
-  <div class="querie">
-    <label>Organisation </label>
-    <input type="text" name="organisation" placeholder="Organization">
-  </div>
+  <!-- ✅ Link your CSS files here -->
+  <link rel="stylesheet" href="style_nav.css" />
+  <link rel="stylesheet" href="style_form.css" />
+  <link rel="stylesheet" href="style_main.css" />
+</head>
+<body>
 
-  <div class="querie">
-    <label>State/Province </label>
-    <input type="text" name="state" placeholder="State/Province">
-  </div>
+  <main>
+    <div class="form">
+      <h1>Life-Time Membership</h1>
 
-  <div class="querie">
-    <label>ZIP / Postal Code </label>
-    <input type="text" name="zip" placeholder="Zip/postal code">
-  </div>
+      <form action="https://membership-supp.onrender.com/submit" method="POST">
+        <div class="querie">
+          <label for="name">Enter your name:</label>
+          <input type="text" name="name" placeholder="Enter your name" required />
+        </div>
 
-  <div class="querie">
-    <label>Country : </label>
-    <input type="text" name="country" placeholder="Country ">
-  </div>
+        <div class="querie">
+          <label>Organisation</label>
+          <input type="text" name="organisation" placeholder="Organization" />
+        </div>
 
-  <div class="querie">
-    <label>Email id : </label>
-    <input type="email" name="email" placeholder="Email id" required>
-  </div>
+        <div class="querie">
+          <label>State/Province</label>
+          <input type="text" name="state" placeholder="State/Province" />
+        </div>
 
-  <div class="querie">
-    <label>Mobile Number : </label>
-    <input type="text" name="mobile" placeholder="Mobile Number">
-  </div>
+        <div class="querie">
+          <label>ZIP / Postal Code</label>
+          <input type="text" name="zip" placeholder="Zip/postal code" />
+        </div>
 
-  <div class="querie">
-    <label>Type of Membership : </label>
-    <input type="text" name="membership_type" placeholder="Type of Membership">
-  </div>
+        <div class="querie">
+          <label>Country</label>
+          <input type="text" name="country" placeholder="Country" />
+        </div>
 
-  <div class="querie">
-    <label>Amount to pay : </label>
-    <input type="text" name="amount" placeholder="Amount to pay">
-  </div>
+        <div class="querie">
+          <label>Email id</label>
+          <input type="email" name="email" placeholder="Email id" required />
+        </div>
 
-  <div class="querie">
-    <label>Photograph : </label>
-    <input type="text" name="photo" placeholder="Photograph">
-  </div>
+        <div class="querie">
+          <label>Mobile Number</label>
+          <input type="text" name="mobile" placeholder="Mobile Number" />
+        </div>
 
-  <div class="querie">
-    <label>Profile of Organisation or Biodata of Individual : </label>
-    <input type="text" name="profile" placeholder="Profile or Biodata">
-  </div>
+        <div class="querie">
+          <label>Type of Membership</label>
+          <input type="text" name="membership_type" placeholder="Type of Membership" />
+        </div>
 
-  <div class="querie">
-    <button type="submit">Submit Form</button>
-  </div>
-</form>
+        <div class="querie">
+          <label>Amount to pay</label>
+          <input type="text" name="amount" placeholder="Amount to pay" />
+        </div>
+
+        <div class="querie">
+          <label>Photograph</label>
+          <input type="text" name="photo" placeholder="Photograph" />
+        </div>
+
+        <div class="querie">
+          <label>Profile of Organisation or Biodata of Individual</label>
+          <input type="text" name="profile" placeholder="Profile or Biodata" />
+        </div>
+
+        <div class="querie">
+          <button type="submit">Submit Form</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+</body>
+</html>
