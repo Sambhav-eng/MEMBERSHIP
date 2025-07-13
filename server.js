@@ -1,4 +1,11 @@
-const nodemailer = require('nodemailer');
+const express = require("express");
+const bodyParser = require("body-parser");
+const nodemailer = require("nodemailer");
+
+const app = express(); // ✅ THIS LINE is missing in your file
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -47,4 +54,10 @@ app.post('/submit', (req, res) => {
       res.send(`<h3>Thanks ${name}, your membership request was sent successfully.</h3>`);
     }
   });
+});
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
