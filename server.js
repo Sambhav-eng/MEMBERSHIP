@@ -45,7 +45,7 @@ app.post('/submit', (req, res) => {
 
   const mailOptions = {
     from: email,
-    to: 'mohitsaxenamohit@gmail.com',
+    to: 'trustforacademic@hmailc',
     subject: 'New Life-Time Membership Submission',
     text: message
   };
