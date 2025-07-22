@@ -16,71 +16,117 @@
 <body>
 
   <div id="navbar-container"></div>
-  
+ 
+  <div class="heading">
+  <h1>From for becoming a Member</h1>
+  </div>
   <main>
+
+    <div class="parent-form">
     <div class="form">
       <h1>Life-Time Membership</h1>
 
       <form action="https://membership-supp.onrender.com/submit" method="POST">
         <div class="querie">
           <label for="name">Enter your name:</label>
+          <br>
           <input type="text" name="name" placeholder="Enter your name" required />
         </div>
 
+         <div class="querie">
+          <label>Enter your Qualification :</label>
+          <br>
+          <input type="text" name="Qualitfication" placeholder="Qualification" />
+        </div>
+
         <div class="querie">
-          <label>Organisation</label>
+  <label>Attach your Resume :</label>
+  <br>
+  <input type="file" id="resume-upload" name="Resume" />
+  <label for="resume-upload" class="custom-file-upload">Choose File</label>
+  <span id="file-name">No file chosen</span>
+</div>
+
+
+          <div class="querie">
+            <label>Enter your Mobile Number :</label>
+            <br>
+            <input type="text" name="mobile" placeholder="Mobile Number" />
+        </div>
+
+         <div class="querie">
+          <label>Enter your Whatsapp Number :</label>
+          <br>
           <input type="text" name="organisation" placeholder="Organization" />
         </div>
 
         <div class="querie">
-          <label>State/Province</label>
+          <label>The name of your Organisation / Work place :</label>
+          <br>
+          <input type="text" name="organisation" placeholder="Organization" />
+        </div>
+
+        <div class="querie">
+          <label>State/Province of Residence</label>
+          <br>
           <input type="text" name="state" placeholder="State/Province" />
         </div>
 
         <div class="querie">
-          <label>ZIP / Postal Code</label>
+          <label>ZIP / Postal Code : </label>
+          <br>
           <input type="text" name="zip" placeholder="Zip/postal code" />
         </div>
 
         <div class="querie">
-          <label>Country</label>
+          <label>What is your Country : </label>
+          <br>
           <input type="text" name="country" placeholder="Country" />
         </div>
 
         <div class="querie">
-          <label>Email id</label>
+          <label>Enter your Email id</label>
+          <br>
           <input type="email" name="email" placeholder="Email id" required />
         </div>
 
-        <div class="querie">
-          <label>Mobile Number</label>
-          <input type="text" name="mobile" placeholder="Mobile Number" />
-        </div>
+        
 
         <div class="querie">
           <label>Type of Membership</label>
+          <br>
           <input type="text" name="membership_type" placeholder="Type of Membership" />
         </div>
 
         <div class="querie">
           <label>Amount to pay</label>
+          <br>
           <input type="text" name="amount" placeholder="Amount to pay" />
         </div>
 
+              
         <div class="querie">
-          <label>Photograph</label>
-          <input type="text" name="photo" placeholder="Photograph" />
-        </div>
+  <label>Attach your Resume :</label>
+  <br>
+  <input type="file" id="resume-upload" name="Resume" />
+  <label for="resume-upload" class="custom-file-upload">Choose File</label>
+  <span id="file-name">No file chosen</span>
+</div>
+
 
         <div class="querie">
           <label>Profile of Organisation or Biodata of Individual</label>
+          <br>
           <input type="text" name="profile" placeholder="Profile or Biodata" />
+          <br>
         </div>
 
         <div class="querie">
-          <button type="submit">Submit Form</button>
-        </div>
+  <button type="submit" class="custom-file-upload">Submit Form</button>
+</div>
+
       </form>
+    </div>
     </div>
   </main>
   <script src="../script2.js"></script>
