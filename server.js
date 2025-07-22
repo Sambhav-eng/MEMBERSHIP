@@ -6,33 +6,38 @@ const path = require("path");
 
 const app = express();
 
-// ✅ Middleware for static files
+// ✅ Middleware for static files and form parsing
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// ✅ Set up multer storage (temp uploads folder)
-const storage = multer.memoryStorage(); // keeps file in memory
+// ✅ Set up multer storage (in-memory, no disk storage needed)
+const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-// ✅ Gmail transporter setup
+// ✅ Setup Gmail transporter
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.EMAIL,
-    pass: process.env.PASSWORD
+    user: process.env.EMAIL,     // Your Gmail
+    pass: process.env.PASSWORD   // Gmail App Password
   }
 });
 
-// ✅ POST route with file support
-app.post("/submit", upload.single("Resume"), (req, res) => {
+// ✅ POST route to handle form submission with 2 file uploads
+app.post("/submit", upload.fields([
+  { name: "Resume", maxCount: 1 },
+  { name: "Photo", maxCount: 1 }
+]), (req, res) => {
   const {
     name, organisation, state, zip, country,
     email, mobile, membership_type, amount,
     profile
   } = req.body;
 
-  const file = req.file; // uploaded Resume
+  // ✅ Grab files
+  const resume = req.files['Resume']?.[0];
+  const photo = req.files['Photo']?.[0];
 
   const message = `
     New Membership Submission:
@@ -49,17 +54,31 @@ app.post("/submit", upload.single("Resume"), (req, res) => {
     Profile: ${profile}
   `;
 
+  // ✅ Create attachment array
+  const attachments = [];
+  if (resume) {
+    attachments.push({
+      filename: resume.originalname,
+      content: resume.buffer
+    });
+  }
+  if (photo) {
+    attachments.push({
+      filename: photo.originalname,
+      content: photo.buffer
+    });
+  }
+
+  // ✅ Email config
   const mailOptions = {
     from: process.env.EMAIL,
     to: "trustforacademic@gmail.com",
     subject: "New Life-Time Membership Submission",
     text: message,
-    attachments: file ? [{
-      filename: file.originalname,
-      content: file.buffer
-    }] : []
+    attachments: attachments
   };
 
+  // ✅ Send email
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       console.error("❌ Email send error:", error);
@@ -71,13 +90,11 @@ app.post("/submit", upload.single("Resume"), (req, res) => {
   });
 });
 
-// ✅ Start server
+// ✅ Server start
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
-
-
 
 /*const express = require("express");
 const bodyParser = require("body-parser");
