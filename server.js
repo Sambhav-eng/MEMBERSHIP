@@ -44,7 +44,7 @@ app.post('/submit', (req, res) => {
 
   const mailOptions = {
     from: process.env.EMAIL, // ✅ Use your OWN Gmail
-    to: 'mohitsaxenamohit@gmail.com', // ✅ Receiver's Gmail
+    to: 'trustforacademic@gmail.com', // ✅ Receiver's Gmail
     subject: 'New Life-Time Membership Submission',
     text: message
   };
