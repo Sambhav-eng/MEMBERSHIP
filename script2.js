@@ -12,13 +12,22 @@ fetch("Assets/Navbar/index.html")
 
   //For photograph
   // Detect file selection and update the span text
-const fileInput = document.getElementById('resume-upload');
-const fileNameSpan = document.getElementById('file-name');
+// Resume File
+const resumeInput = document.getElementById("resume-upload");
+const resumeFileName = document.getElementById("file-name");
 
-fileInput.addEventListener('change', () => {
-  if (fileInput.files.length > 0) {
-    fileNameSpan.textContent = fileInput.files[0].name;
-  } else {
-    fileNameSpan.textContent = "No file chosen";
-  }
-});
+if (resumeInput && resumeFileName) {
+  resumeInput.addEventListener("change", () => {
+    resumeFileName.textContent = resumeInput.files[0]?.name || "No file chosen";
+  });
+}
+
+// Photo File
+const photoInput = document.getElementById("photo-upload");
+const photoFileName = document.getElementById("photo-file-name");
+
+if (photoInput && photoFileName) {
+  photoInput.addEventListener("change", () => {
+    photoFileName.textContent = photoInput.files[0]?.name || "No file chosen";
+  });
+}
