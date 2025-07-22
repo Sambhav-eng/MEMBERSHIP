@@ -88,3 +88,7 @@
     display: flex;
     justify-content: center;
 }
+
+input[type="file"] {
+  display: none;
+}
