@@ -1,0 +1,56 @@
+
+.papers
+{
+margin-top: 4vh;
+box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.insidepapers
+{
+    
+    height: 10vh;
+    width: 85vw;
+    margin:1vh;
+    border-bottom: 2px solid rgba(219, 216, 216, 0.678);
+}
+
+.insidepapers:hover
+{
+    background-color: #8a8b8b48;
+}
+
+.boxinpaper
+{
+    height: 9vh;
+    border: .5px;
+    
+}
+
+.flex
+{
+    display:flex;
+    gap: 2vw;   
+}
+.boxinpaper1
+{
+    width: 6vw;
+}
+
+.boxinpaper2
+{
+   width: 37vw;
+}
+.boxinpaper3
+{
+   width:20vw
+}
+.boxinpaper4
+{
+   width: 4vw;
+}
+.View button a 
+{
+   padding: 5px;
+   text-decoration: none;
+    color: black;
+}
