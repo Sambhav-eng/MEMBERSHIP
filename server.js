@@ -5,6 +5,7 @@ const multer = require("multer");
 const path = require("path");
 
 const app = express();
+app.use(express.static(path.join(__dirname, 'IIFARD/Pages/Membership/public')));
 
 // ✅ Middleware for static files and form parsing
 app.use(express.static("public"));

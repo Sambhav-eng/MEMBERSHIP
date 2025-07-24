@@ -1,0 +1,174 @@
+
+/*Styling sheets*/
+/*Developer-Sambhav Tanay Saxena*/
+
+/*Navigation Bar */
+*
+{
+  margin: 0;
+  padding: 0;
+}
+nav
+{   
+    padding: 25px;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 5px;
+    background-color: white;
+    background-position: center;
+    position:sticky;
+
+}
+
+nav::before
+ {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(82, 82, 82, 0.192);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.456; /* Adjust this value as needed */
+  z-index: -1;
+}
+
+
+
+
+/*New Code for dropdown content :-*/
+
+.dropdown
+{
+    position: relative;
+    display:flex;
+    gap: 3vw;
+    z-index: 3000;
+    text-decoration: none;
+}
+
+.dropbtn
+{
+    padding: 6px;
+    background-color: #c4c4c748;
+    color: #4b2300f7;
+    border-radius: 10px;
+    cursor:pointer;
+    text-decoration: none;
+}
+
+.dropbtn a 
+{
+  text-decoration: none;
+  color: #4b2300f7;
+}
+
+.dropdown-content
+{
+ opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  background-color: #4b4232ee;
+  min-width: 150px;
+  z-index: 2100;
+  color: whitesmoke;
+  border-radius: 8px;
+  top: 100%;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content
+{
+    opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  z-index: 100;
+}
+
+nav
+{
+    z-index: 999;
+}
+
+.dropdown a{
+  text-decoration: none;
+}
+
+.dropdown a:visited 
+{
+  color: #efe4daf7;
+}
+
+.dropbtn:hover{
+  text-shadow: 2px 2px 4px rgb(255, 255, 255);  ;
+}
+
+.dropdown-content a:hover
+{
+  text-shadow: 4px 5px 4px rgb(255, 255, 255);
+}
+
+.has-submenu {
+  position: relative;
+}
+
+.has-submenu:hover .dropdown-content2 {
+  display: block;
+}
+
+.dropdown-content2 {
+  display: none;
+  position: absolute;
+  right: 100%; /* or right: 100% if you want it to open left */
+  top: 0;
+  background-color: #473d6c;
+  padding: 10px;
+  white-space: nowrap;
+  z-index: 1000;
+  border-radius: 8px;
+}
+
+
+
+
+.d1:hover .dropdown-content2
+{
+  display: block;
+}
+
+.dropdown-content3 {
+  display: none;
+  position: absolute;
+  right: 100%; /* or right: 100% if you want it to open left */
+  top: 50%;
+  background-color: #473d6c;
+  padding: 10px;
+  white-space: nowrap;
+  z-index: 1000;
+  border-radius: 8px;
+}
+.d2:hover .dropdown-content3
+{
+  display: block;
+}
+
+.d1,.d2
+{
+  position: relative;
+}
+
+.dropdown a:visited
+{
+  text-decoration: none;
+  color: inherit;
+}

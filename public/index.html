@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style_form.css" />
     <link rel="stylesheet" href="style_main.css" />
     <link rel="stylesheet" href="/IIFARD/Assets/Navbar/style.css">
-    <base href="/IIFARD/Pages/Membership/public/">
+  
 
   </head>
   <body>
@@ -98,12 +98,7 @@
             <input type="text" name="membership_type" placeholder="Type of Membership" />
           </div>
 
-          <div class="querie">
-            <label>Amount to pay</label>
-            <br>
-            <input type="text" name="amount" placeholder="Amount to pay" />
-          </div>
-
+         
            <div class="querie">
   <label>Attach your photo :</label>
   <br>
@@ -120,6 +115,13 @@
             <br>
           </div>
 
+           <div class="querie">
+            <label>Amount to pay</label>
+            <br>
+            <input type="text" name="amount" placeholder="Amount to pay" />
+          </div>
+          <button id="mybutton" class="payment">Pay now</button>
+        <form class="razorpay"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_Qpdug4KQVKtjSu" async> </script> </form>
           <div class="querie">
     <button type="submit" class="custom-file-upload">Submit Form</button>
   </div>
@@ -128,6 +130,6 @@
       </div>
       </div>
     </main>
-    <script src="../script2.js"></script>
+    <script src="/Pages/Membership/public/script2.js"></script>
   </body>
   </html>

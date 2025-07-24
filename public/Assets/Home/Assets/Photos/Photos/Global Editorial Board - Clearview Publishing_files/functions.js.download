@@ -1,0 +1,145 @@
+/**
+ * functions.js.
+ *
+ * Theme specific scripts and initiators here
+ */
+ 
+// Fix $ to jQuery
+(function($) {	
+	// $ Works! You can test it with next line if you like
+	// console.log($);
+
+	// Initiate kube
+	$K.init();
+	AOS.init();
+
+	// Video script
+	/* trigger when page is ready */
+	$(document).ready(function (){
+		function isIE () {
+		    var myNav = navigator.userAgent.toLowerCase();
+		    return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+		}
+		
+		window.isIEOld = isIE() && isIE() < 9;
+		window.isiPad = navigator.userAgent.match(/iPad/i);
+		window.isiPhone = navigator.userAgent.match(/iPhone/i);
+		
+		var img = $('.video').data('placeholder'),
+		    video = $('.video').data('video'),
+		    noVideo = $('.video').data('src'),
+		    el = '';
+		
+		if($(window).width() > 200 && !isIEOld ) {
+		    el +=   '<video autoplay loop muted playsinline poster="' + img + '" >';
+		    el +=       '<source src="' + video + '" type="video/mp4">';
+		    el +=   '</video>';
+		} else {
+		    el = '<div class="video-element" style="background-image: url(' + noVideo + ')"></div>';
+		}
+		
+		$('.video').prepend(el);
+	});
+
+	// Article Catagory Drawer
+	$(document).ready(function(){
+		$('.cat-reveal').on('click', function() {
+			$('.term-panel').toggleClass('active');
+		})
+	});	
+	
+	// Gallery Modal Code
+	$(document).ready(function(){
+		$('div.gallery-icon a').on('click', function(k){
+			k.preventDefault();
+			var imgURL =  $(this).attr('href');
+			$('body').prepend('<div class="gall-modal is-container is-items-middle"><img class=" is-center" src="'+ imgURL +'" /><div class="closethis"><span id="closethis" class="close is-large"></span></div></div>');
+		})
+		$('body').on('click', '.closethis', function() {
+			$('.gall-modal').fadeOut();
+			$('.gall-modal').delay(100).remove();
+		});
+		
+	});
+	
+
+	
+	
+	$(document).ready(function(){
+		$('a.ev-btn').on('click', function(e){
+			e.preventDefault();
+			var currentTab = $(this).attr('href');
+			$('a.ev-btn').removeClass('active');
+			$(this).addClass('active');
+			$('div.event_block').removeClass('active');
+			$(currentTab).addClass('active');
+		});
+		$('a#spns').on('click', function(){
+			$('.spons-int').addClass('hide');
+		});
+		$('a.sponsee').on('click', function(){
+			$('.spons-int').removeClass('hide');
+		});
+
+	});
+	
+
+	//initialize swiper when document ready
+	$(document).ready(function () {
+	  
+		var mySwiper = new Swiper ('.swiper-container', {
+			// Optional parameters
+			direction: 'horizontal',
+			autoplay: {
+				delay: 3000,
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+			pagination: {
+				el: '.swiper-pagination',
+				type: 'bullets',
+				clickable: true,
+				},
+			effect: 'fade',
+			loop: true
+		}) 
+	});   
+
+
+	// Initialise Smoothscroll
+	$(document).ready(function (){
+		var scroll = new SmoothScroll('a.scroll-down', {
+			header: '[data-scroll-header]'
+		});
+	});
+
+	
+	// Mobile menu script
+	$(document).ready(function (){
+	
+		$('a.mobile-nav-icon').on('click', function(c) {
+			$('div.overlay').toggleClass('has-overlay');
+			$('a.mobile-nav-icon').toggleClass('is-active');
+			$('body').toggleClass('has-overlay')
+		});
+		$('div.overlay').on('click', function(d) {
+			$('div.overlay').toggleClass('has-overlay');
+			$('a.mobile-nav-icon').toggleClass('is-active');
+			$('body').toggleClass('has-overlay')
+		});
+	
+	});
+	// Initiate Rellax
+	$(document).ready(function (){
+		//Initiallise Rellax - Parallax plugin 
+		var rellax = new Rellax('.rellax', {
+			speed: -4,
+			center: false,
+			round: true,
+		});
+	
+	}); 	
+	
+})( jQuery );
