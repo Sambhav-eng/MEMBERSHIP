@@ -1,28 +1,30 @@
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Life-Time Membership</title>
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- ✅ Link your CSS files here -->
-    <link rel="stylesheet" href="style_nav.css" />
-    <link rel="stylesheet" href="style_form.css" />
-    <link rel="stylesheet" href="style_main.css" />
-    <link rel="stylesheet" href="/IIFARD/Assets/Navbar/style.css">
-  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life-Time Membership</title>
 
-  </head>
-  <body>
+  <!-- ✅ Link your CSS files here -->
+  <link rel="stylesheet" href="style_nav.css" />
+  <link rel="stylesheet" href="style_form.css" />
+  <link rel="stylesheet" href="style_main.css" />
+  <link rel="stylesheet" href="/IIFARD/Assets/Navbar/style.css">
 
-    <div id="navbar-container"></div>
-  
-    <div class="heading">
+
+</head>
+
+<body>
+
+  <div id="navbar-container"></div>
+
+  <div class="heading">
     <h1>From for becoming a Member</h1>
-    </div>
-    <main>
+  </div>
+  <main>
 
-      <div class="parent-form">
+    <div class="parent-form">
       <div class="form">
         <h1>Life-Time Membership</h1>
 
@@ -40,18 +42,18 @@
           </div>
 
           <div class="querie">
-    <label>Attach your Resume :</label>
-    <br>
-    <input type="file" id="resume-upload" name="Resume" />
-    <label for="resume-upload" class="custom-file-upload">Choose File</label>
-    <span id="file-name">No file chosen</span>
-  </div>
+            <label>Attach your Resume :</label>
+            <br>
+            <input type="file" id="resume-upload" name="Resume" />
+            <label for="resume-upload" class="custom-file-upload">Choose File</label>
+            <span id="file-name">No file chosen</span>
+          </div>
 
 
-            <div class="querie">
-              <label>Enter your Mobile Number :</label>
-              <br>
-              <input type="text" name="mobile" placeholder="Mobile Number" />
+          <div class="querie">
+            <label>Enter your Mobile Number :</label>
+            <br>
+            <input type="text" name="mobile" placeholder="Mobile Number" />
           </div>
 
           <div class="querie">
@@ -90,7 +92,7 @@
             <input type="email" name="email" placeholder="Email id" required />
           </div>
 
-          
+
 
           <div class="querie">
             <label>Type of Membership</label>
@@ -98,14 +100,14 @@
             <input type="text" name="membership_type" placeholder="Type of Membership" />
           </div>
 
-         
-           <div class="querie">
-  <label>Attach your photo :</label>
-  <br>
-  <input type="file" id="photo-upload" name="Photo" />
-  <label for="photo-upload" class="custom-file-upload">Choose File</label>
-  <span id="photo-file-name">No file chosen</span>
-</div>
+
+          <div class="querie">
+            <label>Attach your photo :</label>
+            <br>
+            <input type="file" id="photo-upload" name="Photo" />
+            <label for="photo-upload" class="custom-file-upload">Choose File</label>
+            <span id="photo-file-name">No file chosen</span>
+          </div>
 
 
           <div class="querie">
@@ -115,21 +117,25 @@
             <br>
           </div>
 
-           <div class="querie">
+          <div class="querie">
             <label>Amount to pay</label>
             <br>
             <input type="text" name="amount" placeholder="Amount to pay" />
           </div>
           <button id="mybutton" class="payment">Pay now</button>
-        <form class="razorpay"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_Qpdug4KQVKtjSu" async> </script> </form>
+          <div class="razorpay">
+            <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_Qpdug4KQVKtjSu"
+              async> </script>
+          </div>
           <div class="querie">
-    <button type="submit" class="custom-file-upload">Submit Form</button>
-  </div>
+            <button type="submit" class="custom-file-upload">Submit Form</button>
+          </div>
 
         </form>
       </div>
-      </div>
-    </main>
-    <script src="/Pages/Membership/public/script2.js"></script>
-  </body>
-  </html>
+    </div>
+  </main>
+  <script src="/Pages/Membership-Form/public/script2.js"></script>
+</body>
+
+</html>
