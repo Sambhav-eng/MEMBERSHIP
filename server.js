@@ -1,4 +1,4 @@
-const express = require("express");
+/*const express = require("express");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 const multer = require("multer");
@@ -95,4 +95,86 @@ app.post("/submit", upload.fields([
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
+});*/
+
+
+const express = require("express");
+const bodyParser = require("body-parser");
+const nodemailer = require("nodemailer");
+const multer = require("multer");
+require("dotenv").config();
+
+const app = express();
+
+// Parse form data
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// Multer (in-memory)
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
+
+// Gmail transporter
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD
+  }
 });
+
+// POST route (file upload + email)
+app.post("/submit", upload.fields([
+  { name: "Resume", maxCount: 1 },
+  { name: "Photo", maxCount: 1 }
+]), (req, res) => {
+  
+  const {
+    name, organisation, state, zip, country,
+    email, mobile, membership_type, amount,
+    profile
+  } = req.body;
+
+  const resume = req.files?.Resume?.[0];
+  const photo = req.files?.Photo?.[0];
+
+  const message = `
+    New Membership Submission:
+
+    Name: ${name}
+    Organisation: ${organisation}
+    State: ${state}
+    Zip: ${zip}
+    Country: ${country}
+    Email: ${email}
+    Mobile: ${mobile}
+    Membership Type: ${membership_type}
+    Amount: ${amount}
+    Profile: ${profile}
+  `;
+
+  const attachments = [];
+  if (resume) attachments.push({ filename: resume.originalname, content: resume.buffer });
+  if (photo) attachments.push({ filename: photo.originalname, content: photo.buffer });
+
+  const mailOptions = {
+    from: process.env.EMAIL,
+    to: "trustforacademic@gmail.com",
+    subject: "New Life-Time Membership Submission",
+    text: message,
+    attachments
+  };
+
+  transporter.sendMail(mailOptions, (error) => {
+    if (error) {
+      console.error("Email error:", error);
+      res.send("❌ Error sending email.");
+    } else {
+      res.send(`<h3>Thanks ${name}, your membership request was sent successfully.</h3>`);
+    }
+  });
+});
+
+// Server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on ${PORT}`));
